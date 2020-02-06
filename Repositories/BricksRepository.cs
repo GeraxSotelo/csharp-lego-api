@@ -39,7 +39,7 @@ namespace csharp_lego_api.Repositories
     internal void Edit(Brick update)
     {
       string sql = @"
-      UPDATE bricks SET name = @Name
+      UPDATE bricks SET name = @Name, price = @Price
       WHERE id = @Id;";
       _db.Execute(sql, update);
     }
