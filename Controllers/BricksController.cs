@@ -58,6 +58,32 @@ namespace csharp_lego_api.Controllers
       }
     }
 
+    [HttpPut("{id}")]
+    public ActionResult<Brick> Edit([FromBody] Brick update, int id)
+    {
+      try
+      {
+        update.Id = id;
+        return Ok(_bs.Edit(update));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult<String> Delete(int id)
+    {
+      try
+      {
+        return Ok(_bs.Delete(id));
+      }
+      catch (System.Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
 
   }
 }

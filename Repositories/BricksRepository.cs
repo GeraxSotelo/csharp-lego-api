@@ -35,5 +35,19 @@ namespace csharp_lego_api.Repositories
       newData.Id = id;
       return newData;
     }
+
+    internal void Edit(Brick update)
+    {
+      string sql = @"
+      UPDATE bricks SET name = @Name
+      WHERE id = @Id;";
+      _db.Execute(sql, update);
+    }
+
+    internal void Delete(int id)
+    {
+      string sql = "DELETE FROM bricks WHERE id = @id";
+      _db.Execute(sql, new { id });
+    }
   }
 }

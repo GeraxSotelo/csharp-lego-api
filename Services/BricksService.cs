@@ -30,5 +30,22 @@ namespace csharp_lego_api.Services
       _repo.Create(newData);
       return newData;
     }
+
+    internal Brick Edit(Brick update)
+    {
+      var found = _repo.GetById(update.Id);
+      if (found == null) { throw new Exception("Invalid Id bro"); }
+      //update.AuthorId = found.AuthorId;
+      _repo.Edit(update);
+      return update;
+    }
+
+    internal String Delete(int id)
+    {
+      var found = _repo.GetById(id);
+      if (found == null) { throw new Exception("Invalid Id"); }
+      _repo.Delete(id);
+      return "Successfully Deleted";
+    }
   }
 }
