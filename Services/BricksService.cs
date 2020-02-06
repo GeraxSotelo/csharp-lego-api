@@ -25,6 +25,11 @@ namespace csharp_lego_api.Services
       return found;
     }
 
+    internal IEnumerable<Brick> GetBrickBySetId(int setId)
+    {
+      return _repo.GetBrickBySetId(setId);
+    }
+
     internal Brick Create(Brick newData)
     {
       _repo.Create(newData);
@@ -47,5 +52,6 @@ namespace csharp_lego_api.Services
       _repo.Delete(id);
       return "Successfully Deleted";
     }
+
   }
 }

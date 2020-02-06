@@ -23,3 +23,7 @@
 -- SELECT s.* FROM bricksets bs
 -- INNER JOIN bsets s ON s.id = bs.setId
 -- WHERE brickId = 2;
+
+-- SELECT b.* FROM bricksets bs
+-- INNER JOIN bricks b ON b.id = bs.brickId
+-- WHERE setId = 1;
