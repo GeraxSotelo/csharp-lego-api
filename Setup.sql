@@ -17,3 +17,9 @@
 --     REFERENCES bsets(id) 
 --     ON DELETE CASCADE
 -- )
+
+-- SELECT * FROM bricksets;
+
+-- SELECT s.* FROM bricksets bs
+-- INNER JOIN bsets s ON s.id = bs.setId
+-- WHERE brickId = 2;
