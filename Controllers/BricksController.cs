@@ -14,9 +14,11 @@ namespace csharp_lego_api.Controllers
   public class BricksController : ControllerBase
   {
     private readonly BricksService _bs;
-    public BricksController(BricksService bs)
+    private readonly SetsService _ss;
+    public BricksController(BricksService bs, SetsService ss)
     {
       _bs = bs;
+      _ss = ss;
     }
 
     [HttpGet]
@@ -40,6 +42,19 @@ namespace csharp_lego_api.Controllers
         return Ok(_bs.GetById(id));
       }
       catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [HttpGet("{id}/sets")]
+    public ActionResult<IEnumerable<Set>> GetSetByBrickId(int id)
+    {
+      try
+      {
+        return Ok(_ss.GetSetByBrickId(id));
+      }
+      catch (System.Exception e)
       {
         return BadRequest(e.Message);
       }

@@ -25,6 +25,16 @@ namespace csharp_lego_api.Repositories
       return _db.QueryFirstOrDefault<Set>(sql, new { id });
     }
 
+    internal IEnumerable<Set> GetSetByBrickId(int brickId)
+    {
+      string sql = @"
+      SELECT s.* FROM bricksets bs
+      INNER JOIN bsets s ON s.id = bs.setId
+      WHERE brickId = @brickId;
+      ";
+      return _db.Query<Set>(sql, new { brickId });
+    }
+
     internal Set Create(Set newData)
     {
       string sql = @"

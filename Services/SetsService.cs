@@ -28,6 +28,11 @@ namespace csharp_lego_api.Services
       return found;
     }
 
+    internal IEnumerable<Set> GetSetByBrickId(int brickId)
+    {
+      return _repo.GetSetByBrickId(brickId);
+    }
+
     internal Set Create(Set newData)
     {
       _repo.Create(newData);
